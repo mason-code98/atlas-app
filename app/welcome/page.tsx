@@ -14,11 +14,11 @@ export default function WelcomePage() {
     <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-black px-6">
       <div className="absolute left-1/2 top-1/2 h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full bg-emerald-400/20 blur-[120px]" />
 
-      <div className="relative z-8 text-center">
+      <div className="relative z-10 text-center">
         <Image
           src="/atlas-logo-v3.png"
           alt="Atlas"
-          width={500}
+          width={500} 
           height={250}
           priority
           className="mx-auto h-auto w-[420px] md:w-[620px]"
