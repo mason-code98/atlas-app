@@ -148,12 +148,12 @@ export default function PortfolioPage() {
                 />
 
                 <path
-  d="M 20 270 L 150 255 L 300 230 L 440 202 L 590 168 L 730 130 L 860 92 L 980 48 L 980 300 L 20 300 Z"
-  fill="url(#portfolioFill)"
-/>
+                  d="M 20 270 L 150 255 L 300 230 L 440 202 L 590 168 L 730 130 L 860 92 L 980 48 L 980 300 L 20 300 Z"
+                  fill="url(#portfolioFill)"
+                />
 
                 <path
-                  d="M 20 256 L 150 238 L 300 218 L 440 196 L 590 168 L 730 132 L 860 98 L 980 54"
+                  d="M 20 270 L 150 255 L 300 230 L 440 202 L 590 168 L 730 130 L 860 92 L 980 48"
                   fill="none"
                   stroke="#34d399"
                   strokeWidth="4"
@@ -165,11 +165,11 @@ export default function PortfolioPage() {
             </div>
 
             <div className="mt-5 flex items-center justify-between border-t border-white/10 pt-5 text-xs text-zinc-600">
-              <span>Aug</span>
+              <span>Aug 2025</span>
               <span>Nov</span>
               <span>Feb</span>
               <span>May</span>
-              <span>Aug</span>
+              <span>Aug 2026</span>
             </div>
           </article>
 
@@ -231,48 +231,53 @@ export default function PortfolioPage() {
               </thead>
 
               <tbody>
-                {propertyRows.map((property) => (
-                  <tr
-                    key={property.name}
-                    className="border-b border-white/5 transition last:border-0 hover:bg-white/[0.025]"
-                  >
-                    <td className="px-6 py-5">
-                      <p className="font-medium text-white">
-                        {property.name}
-                      </p>
+                {propertyRows.map((property) => {
+                  const positiveCashFlow =
+                    property.cashFlow.startsWith("+");
 
-                      <p className="mt-1 text-sm text-zinc-500">
-                        {property.location}
-                      </p>
-                    </td>
-
-                    <td className="px-6 py-5 text-sm text-zinc-400">
-                      {property.type}
-                    </td>
-
-                    <td className="px-6 py-5 text-sm text-zinc-200">
-                      {property.value}
-                    </td>
-
-                    <td className="px-6 py-5 text-sm text-zinc-200">
-                      {property.equity}
-                    </td>
-
-                    <td
-                      className={`px-6 py-5 text-sm font-medium ${
-                        property.cashFlow.startsWith("+")
-                          ? "text-emerald-400"
-                          : "text-zinc-400"
-                      }`}
+                  return (
+                    <tr
+                      key={property.name}
+                      className="border-b border-white/5 transition last:border-0 hover:bg-white/[0.025]"
                     >
-                      {property.cashFlow}
-                    </td>
+                      <td className="px-6 py-5">
+                        <p className="font-medium text-white">
+                          {property.name}
+                        </p>
 
-                    <td className="px-6 py-5 text-sm text-zinc-400">
-                      {property.ltv}
-                    </td>
-                  </tr>
-                ))}
+                        <p className="mt-1 text-sm text-zinc-500">
+                          {property.location}
+                        </p>
+                      </td>
+
+                      <td className="px-6 py-5 text-sm text-zinc-400">
+                        {property.type}
+                      </td>
+
+                      <td className="px-6 py-5 text-sm text-zinc-200">
+                        {property.value}
+                      </td>
+
+                      <td className="px-6 py-5 text-sm text-zinc-200">
+                        {property.equity}
+                      </td>
+
+                      <td
+                        className={`px-6 py-5 text-sm font-medium ${
+                          positiveCashFlow
+                            ? "text-emerald-400"
+                            : "text-zinc-400"
+                        }`}
+                      >
+                        {property.cashFlow}
+                      </td>
+
+                      <td className="px-6 py-5 text-sm text-zinc-400">
+                        {property.ltv}
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           </div>
