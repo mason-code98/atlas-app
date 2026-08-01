@@ -1,0 +1,209 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.welcome-tagline {
+  opacity: 0;
+  animation: fadeUp 1s ease-out 2s forwards;
+}
+.atlas-transition {
+  animation: atlasOverlayExit 1.5s ease-in-out forwards;
+}
+
+.atlas-transition-glow {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(52, 211, 153, 0.24),
+      rgba(0, 0, 0, 0.88) 48%,
+      #000 78%
+    );
+  animation: atlasGlowPulse 1.5s ease-in-out forwards;
+}
+
+.atlas-word-field {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  perspective: 700px;
+}
+
+.atlas-stream-word {
+  position: absolute;
+  color: rgba(52, 211, 153, 0.85);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  white-space: nowrap;
+  opacity: 0;
+  text-shadow: 0 0 14px rgba(52, 211, 153, 0.65);
+  animation: atlasWordRush 0.9s ease-in 0.28s forwards;
+}
+
+.atlas-transition-center {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.atlas-transition-mark {
+  color: white;
+  font-size: clamp(2.5rem, 8vw, 7rem);
+  font-weight: 700;
+  letter-spacing: 0.32em;
+  opacity: 0;
+  transform: scale(0.88);
+  text-shadow:
+    0 0 20px rgba(52, 211, 153, 0.35),
+    0 0 60px rgba(52, 211, 153, 0.18);
+  animation: atlasMarkPulse 1.2s ease-in-out forwards;
+}
+
+.atlas-transition-flash {
+  position: absolute;
+  inset: 0;
+  background: rgba(52, 211, 153, 0.12);
+  opacity: 0;
+  animation: atlasFlash 1.5s ease-in-out forwards;
+}
+
+@keyframes atlasWordRush {
+  0% {
+    opacity: 0;
+    transform: translateZ(-260px) scale(0.35);
+    filter: blur(6px);
+  }
+
+  35% {
+    opacity: 0.75;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateZ(520px) scale(2.4);
+    filter: blur(1px);
+  }
+}
+
+@keyframes atlasMarkPulse {
+  0% {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+    transform: scale(1.04);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.22);
+    filter: blur(6px);
+  }
+}
+
+@keyframes atlasGlowPulse {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  35% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1.35);
+  }
+}
+
+@keyframes atlasFlash {
+  0%,
+  72% {
+    opacity: 0;
+  }
+
+  82% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes atlasOverlayExit {
+  0%,
+  86% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atlas-transition,
+  .atlas-transition-glow,
+  .atlas-stream-word,
+  .atlas-transition-mark,
+  .atlas-transition-flash {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+  }
+}
