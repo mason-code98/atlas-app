@@ -1,36 +1,30 @@
 const propertyRows = [
- {
-    address: "Oak Ridge Residence",
+  {
+    name: "Oak Ridge Residence",
     location: "Nashville, TN",
     type: "Primary residence",
     value: "$485,000",
     equity: "$172,500",
-    loan: "$312,500",
-    rent: "—",
     cashFlow: "Primary",
-    occupancy: "Owner occupied",
+    ltv: "64.4%",
   },
   {
-    address: "Riverstone Duplex",
+    name: "Riverstone Duplex",
     location: "Austin, TX",
     type: "Two-unit rental",
     value: "$735,000",
     equity: "$267,000",
-    loan: "$468,000",
-    rent: "$5,200",
-    cashFlow: "+$1,260/mo",
-    occupancy: "100% occupied",
+    cashFlow: "+$1,260",
+    ltv: "63.7%",
   },
   {
-    address: "Cedar Grove Flats",
+    name: "Cedar Grove Flats",
     location: "Charlotte, NC",
     type: "Eight-unit multifamily",
     value: "$1,280,000",
     equity: "$410,000",
-    loan: "$870,000",
-    rent: "$11,800",
-    cashFlow: "+$3,140/mo",
-    occupancy: "96% occupied",
+    cashFlow: "+$3,140",
+    ltv: "68.0%",
   },
 ];
 
@@ -40,25 +34,32 @@ export default function PortfolioPage() {
       <div className="mx-auto max-w-7xl">
         <header className="flex flex-col gap-5 border-b border-white/10 pb-8 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.22em] text-emerald-400">
-              Atlas Portfolio
-            </p>
+            <div className="flex flex-wrap items-center gap-3">
+              <p className="text-xs font-medium uppercase tracking-[0.22em] text-emerald-400">
+                Atlas Portfolio
+              </p>
+
+              <span className="rounded-full border border-emerald-400/20 bg-emerald-400/[0.06] px-3 py-1 text-[10px] font-medium uppercase tracking-[0.16em] text-emerald-300">
+                Demo data
+              </span>
+            </div>
 
             <h1 className="mt-3 text-4xl font-semibold tracking-tight sm:text-5xl">
               Portfolio overview
             </h1>
 
             <p className="mt-3 max-w-2xl text-sm leading-6 text-zinc-400 sm:text-base">
-              A consolidated view of your property values, equity, debt,
-              and monthly performance.
+              A consolidated view of property values, equity, debt, and monthly
+              performance across the Atlas demonstration portfolio.
             </p>
           </div>
 
           <button
             type="button"
-            className="rounded-full border border-white/10 bg-white/[0.04] px-5 py-3 text-sm font-medium text-white transition hover:border-emerald-400/40 hover:bg-emerald-400/10"
+            disabled
+            className="cursor-not-allowed rounded-full border border-white/10 bg-white/[0.03] px-5 py-3 text-sm font-medium text-zinc-600"
           >
-            Export report
+            Export report — Coming soon
           </button>
         </header>
 
@@ -71,22 +72,23 @@ export default function PortfolioPage() {
                 </p>
 
                 <p className="mt-3 text-5xl font-semibold tracking-tight sm:text-6xl">
-                  $520,000
+                  $2,500,000
                 </p>
 
                 <div className="mt-3 flex items-center gap-2 text-sm font-medium text-emerald-400">
-                  <span>+$18,600</span>
+                  <span>+$128,000</span>
                   <span>·</span>
-                  <span>+3.71%</span>
+                  <span>+5.4%</span>
                 </div>
               </div>
 
               <div className="sm:text-right">
                 <p className="text-sm font-medium text-zinc-300">
-                  July 2026
+                  August 2026
                 </p>
+
                 <p className="mt-1 text-xs text-zinc-600">
-                  Based on current estimates
+                  Based on demonstration estimates
                 </p>
               </div>
             </div>
@@ -96,6 +98,8 @@ export default function PortfolioPage() {
                 viewBox="0 0 1000 300"
                 preserveAspectRatio="none"
                 className="h-full w-full"
+                role="img"
+                aria-label="Atlas Demo portfolio value growth chart"
               >
                 <defs>
                   <linearGradient
@@ -110,6 +114,7 @@ export default function PortfolioPage() {
                       stopColor="#34d399"
                       stopOpacity="0.22"
                     />
+
                     <stop
                       offset="100%"
                       stopColor="#34d399"
@@ -125,6 +130,7 @@ export default function PortfolioPage() {
                   y2="75"
                   stroke="rgba(255,255,255,0.05)"
                 />
+
                 <line
                   x1="0"
                   x2="1000"
@@ -132,6 +138,7 @@ export default function PortfolioPage() {
                   y2="150"
                   stroke="rgba(255,255,255,0.05)"
                 />
+
                 <line
                   x1="0"
                   x2="1000"
@@ -141,12 +148,12 @@ export default function PortfolioPage() {
                 />
 
                 <path
-                  d="M 20 250 L 150 232 L 300 220 L 440 190 L 590 176 L 730 135 L 860 112 L 980 62 L 980 300 L 20 300 Z"
-                  fill="url(#portfolioFill)"
-                />
+  d="M 20 270 L 150 255 L 300 230 L 440 202 L 590 168 L 730 130 L 860 92 L 980 48 L 980 300 L 20 300 Z"
+  fill="url(#portfolioFill)"
+/>
 
                 <path
-                  d="M 20 250 L 150 232 L 300 220 L 440 190 L 590 176 L 730 135 L 860 112 L 980 62"
+                  d="M 20 256 L 150 238 L 300 218 L 440 196 L 590 168 L 730 132 L 860 98 L 980 54"
                   fill="none"
                   stroke="#34d399"
                   strokeWidth="4"
@@ -162,28 +169,28 @@ export default function PortfolioPage() {
               <span>Nov</span>
               <span>Feb</span>
               <span>May</span>
-              <span>Jul</span>
+              <span>Aug</span>
             </div>
           </article>
 
           <aside className="grid gap-5 sm:grid-cols-2 xl:grid-cols-1">
             <MetricCard
               label="Total equity"
-              value="$128,000"
-              detail="+$2,410 this month"
+              value="$849,500"
+              detail="+$8,740 this month"
               positive
             />
 
             <MetricCard
               label="Total debt"
-              value="$392,000"
-              detail="75.4% portfolio LTV"
+              value="$1,650,500"
+              detail="66.0% portfolio LTV"
             />
 
             <MetricCard
               label="Monthly cash flow"
-              value="+$2,200"
-              detail="$26,400 annually"
+              value="+$4,400"
+              detail="$52,800 annually"
               positive
             />
           </aside>
@@ -195,6 +202,7 @@ export default function PortfolioPage() {
               <p className="text-xs uppercase tracking-[0.2em] text-zinc-600">
                 Property performance
               </p>
+
               <h2 className="mt-2 text-2xl font-semibold">
                 Assets in this portfolio
               </h2>
@@ -202,17 +210,19 @@ export default function PortfolioPage() {
 
             <button
               type="button"
-              className="text-sm font-medium text-emerald-400 hover:text-emerald-300"
+              disabled
+              className="cursor-not-allowed text-sm font-medium text-zinc-600"
             >
-              Add property
+              Add property — Coming soon
             </button>
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full min-w-[760px]">
+            <table className="w-full min-w-[820px]">
               <thead>
                 <tr className="border-b border-white/10 text-left text-xs uppercase tracking-[0.16em] text-zinc-600">
                   <th className="px-6 py-4 font-medium">Property</th>
+                  <th className="px-6 py-4 font-medium">Type</th>
                   <th className="px-6 py-4 font-medium">Value</th>
                   <th className="px-6 py-4 font-medium">Equity</th>
                   <th className="px-6 py-4 font-medium">Cash flow</th>
@@ -230,9 +240,14 @@ export default function PortfolioPage() {
                       <p className="font-medium text-white">
                         {property.name}
                       </p>
+
                       <p className="mt-1 text-sm text-zinc-500">
                         {property.location}
                       </p>
+                    </td>
+
+                    <td className="px-6 py-5 text-sm text-zinc-400">
+                      {property.type}
                     </td>
 
                     <td className="px-6 py-5 text-sm text-zinc-200">
@@ -243,7 +258,13 @@ export default function PortfolioPage() {
                       {property.equity}
                     </td>
 
-                    <td className="px-6 py-5 text-sm font-medium text-emerald-400">
+                    <td
+                      className={`px-6 py-5 text-sm font-medium ${
+                        property.cashFlow.startsWith("+")
+                          ? "text-emerald-400"
+                          : "text-zinc-400"
+                      }`}
+                    >
                       {property.cashFlow}
                     </td>
 
@@ -265,20 +286,26 @@ export default function PortfolioPage() {
 
             <div className="mt-6 space-y-5">
               <HealthRow
-                label="Occupancy"
-                value="100%"
+                label="Rental occupancy"
+                value="98%"
                 status="Healthy"
               />
 
               <HealthRow
                 label="Loan-to-value"
-                value="75.4%"
-                status="Watch"
+                value="66.0%"
+                status="Healthy"
+              />
+
+              <HealthRow
+                label="Monthly cash flow"
+                value="+$4,400"
+                status="Healthy"
               />
 
               <HealthRow
                 label="Cash reserves"
-                value="6.2 months"
+                value="7.4 months"
                 status="Healthy"
               />
             </div>
@@ -290,23 +317,30 @@ export default function PortfolioPage() {
             </p>
 
             <h2 className="mt-4 text-2xl font-semibold">
-              Strong cash flow. Elevated leverage.
+              Strong equity. Healthy income.
             </h2>
 
             <p className="mt-3 max-w-xl text-sm leading-6 text-zinc-400">
-              Your portfolio is producing positive monthly income, but the
-              current loan-to-value ratio leaves less room for a market
-              downturn or cash-out refinance.
+              The demonstration portfolio combines a primary residence with
+              two income-producing assets. Positive monthly cash flow, strong
+              occupancy, and a 66% portfolio loan-to-value ratio create a
+              balanced position for continued growth.
             </p>
 
             <button
               type="button"
-              className="mt-6 text-sm font-medium text-emerald-300 hover:text-emerald-200"
+              disabled
+              className="mt-6 cursor-not-allowed text-sm font-medium text-zinc-600"
             >
-              Review financing strategy →
+              Review financing strategy — Coming soon
             </button>
           </article>
         </section>
+
+        <p className="mt-8 text-center text-xs leading-5 text-zinc-700">
+          All properties, locations, and financial figures shown are fictional
+          and provided only to demonstrate Atlas.
+        </p>
       </div>
     </main>
   );
