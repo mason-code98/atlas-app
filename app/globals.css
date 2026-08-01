@@ -20,14 +20,18 @@
 }
 
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Welcome screen animations */
+
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: scale(0.92);
+    transform: scale(0.94);
   }
 
   to {
@@ -39,7 +43,7 @@ body {
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translateY(22px);
   }
 
   to {
@@ -47,10 +51,14 @@ body {
     transform: translateY(0);
   }
 }
+
 .welcome-tagline {
   opacity: 0;
-  animation: fadeUp 1s ease-out 2s forwards;
+  animation: fadeUp 0.8s ease-out 0.45s forwards;
 }
+
+/* Atlas page transition */
+
 .atlas-transition {
   animation: atlasOverlayExit 1.5s ease-in-out forwards;
 }
@@ -58,13 +66,12 @@ body {
 .atlas-transition-glow {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(
-      circle at center,
-      rgba(52, 211, 153, 0.24),
-      rgba(0, 0, 0, 0.88) 48%,
-      #000 78%
-    );
+  background: radial-gradient(
+    circle at center,
+    rgba(52, 211, 153, 0.24),
+    rgba(0, 0, 0, 0.88) 48%,
+    #000 78%
+  );
   animation: atlasGlowPulse 1.5s ease-in-out forwards;
 }
 
@@ -205,27 +212,5 @@ body {
   .atlas-transition-flash {
     animation-duration: 0.01ms !important;
     animation-delay: 0ms !important;
-  }
-}@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.96);
-  }
-
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
   }
 }
