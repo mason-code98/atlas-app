@@ -7,7 +7,7 @@ export default function WelcomePage() {
   const router = useRouter();
 
   function enterDemo() {
-    router.push("/");
+    router.push("/dashboard");
   }
 
   return (
