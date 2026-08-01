@@ -2,17 +2,17 @@ const buildTemplates = [
   {
     name: "Single-Family Home",
     description: "Plan a ground-up residential build from lot to completion.",
-    timeline: "8–12 months",
+    timeline: "18-24 months",
   },
   {
     name: "Duplex",
     description: "Create a two-unit rental or build-to-sell project.",
-    timeline: "10–14 months",
+    timeline: "18-24 months",
   },
   {
     name: "Manufactured Home",
     description: "Track land preparation, delivery, setup, utilities, and finish work.",
-    timeline: "4–8 months",
+    timeline: "24-36 months",
   },
 ];
 
